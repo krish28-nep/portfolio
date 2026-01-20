@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.srishsitikhu.com.np/</loc>
+    <loc>https://www.krishsitikhu.com.np/</loc>
     <priority>1.00</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.srishsitikhu.com.np/#about</loc>
+    <loc>https://www.krishsitikhu.com.np/#about</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.srishsitikhu.com.np/#skills</loc>
+    <loc>https://www.krishsitikhu.com.np/#skills</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.srishsitikhu.com.np/#projects</loc>
+    <loc>https://www.krishsitikhu.com.np/#projects</loc>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.srishsitikhu.com.np/#contact</loc>
+    <loc>https://www.krishsitikhu.com.np/#contact</loc>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
