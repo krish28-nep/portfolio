@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     );
     const projectCards = document.querySelectorAll(".project-card");
     let isMenuOpen = false;
+    let mouseX = 0;
+    let mouseY = 0;
 
     // Check for saved theme
     if (
@@ -159,26 +161,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Skills filter
-    skillsFilter.forEach((button) => {
-        button.addEventListener("click", function () {
-            // Remove active class from all buttons
-            skillsFilter.forEach((btn) => btn.classList.remove("active"));
+    const filterButtons = document.querySelectorAll(".filter-btn");
 
-            // Add active class to clicked button
-            this.classList.add("active");
-
-            const filter = this.getAttribute("data-filter");
-
-            // Show/hide skill cards based on filter
-            skillCards.forEach((card) => {
-                if (filter === "all" || card.getAttribute("data-category") === filter) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
+    // Intersection Observer for scroll reveal
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
                 }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    skillCards.forEach(card => observer.observe(card));
+
+    // Filtering logic
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filter = btn.dataset.filter;
+
+            skillCards.forEach(card => {
+                const match =
+                    filter === "all" || card.dataset.category === filter;
+
+                card.style.display = match ? "block" : "none";
             });
         });
     });
+
 
     // Projects filter
     projectFilter.forEach((button) => {
@@ -228,6 +243,175 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize AOS
     initAOS();
+
+    // Track mouse movement
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // ========== CUSTOM CURSOR ==========
+    // Only create custom cursor on desktop
+    if (window.innerWidth >= 769) {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        const cursorDot = document.createElement('div');
+        cursorDot.className = 'custom-cursor-dot';
+        document.body.appendChild(cursorDot);
+
+        let cursorX = 0;
+        let cursorY = 0;
+        let cursorDotX = 0;
+        let cursorDotY = 0;
+
+        function updateCursor() {
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+            cursorDotX += (mouseX - cursorDotX) * 0.3;
+            cursorDotY += (mouseY - cursorDotY) * 0.3;
+
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            cursorDot.style.left = cursorDotX + 'px';
+            cursorDot.style.top = cursorDotY + 'px';
+
+            requestAnimationFrame(updateCursor);
+        }
+
+        updateCursor();
+
+        // Cursor interactions
+        const interactiveElements = document.querySelectorAll('a, button, .skill-card, .project-card, .btn');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursor.style.borderColor = 'var(--primary-color)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.borderColor = 'var(--primary-color)';
+            });
+        });
+    }
+
+    // ========== CURSOR TRAIL EFFECT ==========
+    // Only on desktop
+    if (window.innerWidth >= 769) {
+        let trailCount = 0;
+        document.addEventListener('mousemove', (e) => {
+            if (trailCount % 3 === 0) { // Create trail every 3rd movement for performance
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                document.body.appendChild(trail);
+
+                setTimeout(() => {
+                    if (trail.parentNode) {
+                        trail.parentNode.removeChild(trail);
+                    }
+                }, 500);
+            }
+            trailCount++;
+        });
+    }
+
+    // ========== SCROLL JACKING ==========
+    let currentSection = 0;
+    const allSections = document.querySelectorAll('section');
+    let isScrollJacking = false;
+
+    function scrollToSection(index) {
+        if (isScrollJacking || index < 0 || index >= allSections.length) return;
+
+        isScrollJacking = true;
+        currentSection = index;
+        const targetSection = allSections[index];
+        const headerHeight = header.offsetHeight;
+        const targetPosition = targetSection.offsetTop - headerHeight;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+
+        setTimeout(() => {
+            isScrollJacking = false;
+        }, 1000);
+    }
+
+
+
+    // Update current section on scroll
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.pageYOffset + window.innerHeight / 2;
+        allSections.forEach((section, index) => {
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                currentSection = index;
+            }
+        });
+    });
+
+    // ========== CURSOR-BASED INTERACTIONS ==========
+    // Only on desktop
+    if (window.innerWidth >= 769) {
+        // Magnetic effect on buttons and cards
+        const magneticElements = document.querySelectorAll('.btn, .skill-card, .project-card');
+
+        magneticElements.forEach(element => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                const moveX = x * 0.1;
+                const moveY = y * 0.1;
+
+                element.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+            });
+
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = 'translate(0, 0) scale(1)';
+            });
+        });
+
+        // Tilt effect on cards
+        const tiltElements = document.querySelectorAll('.skill-card, .project-card');
+
+        tiltElements.forEach(element => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // Glow effect on hover
+        document.querySelectorAll('.skill-card, .project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    }
 
     // Initialize skill progress bars animation
     function animateSkillBars() {
