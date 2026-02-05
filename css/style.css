@@ -655,8 +655,8 @@ body:not(.dark-mode) .sun-icon,
 }
 
 .skill-card svg {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 15px;
 }
 
