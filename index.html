@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Krish Sitikhu | Full Stack Developer</title>
-  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js" defer></script>
   <meta name="description"
     content="Portfolio of Krish Sitikhu, a passionate web developer based in Bhaktapur, Nepal, specializing in React, Next.js, and full-stack development." />
   <meta name="keywords"
@@ -16,14 +16,28 @@
   <meta property="og:description"
     content="Explore the professional portfolio of Krish Sitikhu, a web developer from Bhaktapur, Nepal, skilled in creating responsive and user-friendly web applications." />
   <meta property="og:image" content="https://www.krishsitikhu.com.np/image/profile.jpg" />
-  <meta property="og:url" content="http`s://www.krishsitikhu.com.np/" />
+  <meta property="og:url" content="https://www.krishsitikhu.com.np/" />
   <meta property="og:type" content="website" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" defer type="text/javascript"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Krish Sitikhu",
+  "jobTitle": "Full Stack Developer",
+  "url": "https://krishsitikhu.com.np",
+  "sameAs": [
+    "https://github.com/krish28-nep",
+    "https://linkedin.com/in/krishsitikhu"
+  ]
+}
+</script>
+
 </head>
 
 <body class="h-full overflow-auto">
@@ -51,7 +65,8 @@
               </svg>
               <svg id="moon-icon" class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-              </svg></button> <!-- Hamburger Menu --> <button id="hamburger" class="hamburger md:hidden"> <span></span>
+              </svg></button> <!-- Hamburger Menu --> <button id="hamburger" class="hamburger md:hidden"
+              aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"> <span></span>
               <span></span> <span></span> </button>
           </div>
         </div>
@@ -95,7 +110,7 @@
               <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden gradient-border p-1">
                 <div
                   class="w-full h-full rounded-full bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center">
-                  <img src="images/profile.jpg" alt="Profile photo" />
+                  <img src="images/profile.jpg" loading="lazy" decoding="async" alt="Profile photo" />
                 </div>
               </div>
             </div>
@@ -288,9 +303,9 @@
         <div class="grid md:grid-cols-3 gap-8">
 
           <!-- 1. The Khwopa -->
-          <div class="project-card glass-card rounded-2xl overflow-hidden reveal">
+          <article class="project-card glass-card rounded-2xl overflow-hidden reveal">
             <div class="h-48 overflow-hidden">
-              <img src="images/projects/project1.png" alt="The Khwopa project preview"
+              <img src="images/projects/project1.png" loading="lazy" decoding="async" alt="The Khwopa project preview"
                 class="w-full h-full object-cover" />
             </div>
             <div class="p-6">
@@ -310,13 +325,13 @@
                 Live Demo
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- 2. Consultancy Portal -->
-          <div class="project-card glass-card rounded-2xl overflow-hidden reveal">
+          <article class="project-card glass-card rounded-2xl overflow-hidden reveal">
             <div class="h-48 overflow-hidden">
-              <img src="images/projects/project2.png" alt="The Khwopa project preview"
-                class="w-full h-full object-cover" />
+              <img src="images/projects/project2.png" loading="lazy" decoding="async"
+                alt="Consultancy Management Portal preview" class="w-full h-full object-cover" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">Consultancy Management Portal</h3>
@@ -335,13 +350,13 @@
                 Live Demo
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- 3. Infotraid Portfolio -->
-          <div class="project-card glass-card rounded-2xl overflow-hidden reveal">
+          <article class="project-card glass-card rounded-2xl overflow-hidden reveal">
             <div class="h-48 overflow-hidden">
-              <img src="images/projects/project4.png" alt="The Khwopa project preview"
-                class="w-full h-full object-cover" />
+              <img src="images/projects/project4.png" loading="lazy" decoding="async"
+                alt="Infotraid Portfolio Website preview" class="w-full h-full object-cover" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">Infotraid Portfolio Website</h3>
@@ -359,12 +374,12 @@
                 Live Demo
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- 4. Vortexis -->
-          <div class="project-card glass-card rounded-2xl overflow-hidden reveal">
+          <article class="project-card glass-card rounded-2xl overflow-hidden reveal">
             <div class="h-48 overflow-hidden">
-              <img src="images/projects/project6.png" alt="The Khwopa project preview"
+              <img src="images/projects/project6.png" loading="lazy" decoding="async" alt="Vortexis E-Commerce preview"
                 class="w-full h-full object-cover" />
             </div>
             <div class="p-6">
@@ -390,13 +405,13 @@
                 </a>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- 5. General Examination -->
-          <div class="project-card glass-card rounded-2xl overflow-hidden reveal">
+          <article class="project-card glass-card rounded-2xl overflow-hidden reveal">
             <div class="h-48 overflow-hidden">
-              <img src="images/projects/project7.jpg" alt="The Khwopa project preview"
-                class="w-full h-full object-cover" />
+              <img src="images/projects/project7.jpg" loading="lazy" decoding="async"
+                alt="General Examination System preview" class="w-full h-full object-cover" />
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold mb-2">General Examination System</h3>
@@ -421,10 +436,10 @@
                 </a>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- 6. Tic Tac Toe -->
-          <div class="project-card glass-card rounded-2xl overflow-hidden reveal">
+          <article class="project-card glass-card rounded-2xl overflow-hidden reveal">
             <div class="h-48 overflow-hidden">
               <img class="h-full w-full object-cover" fill
                 src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -446,7 +461,7 @@
                 Source Code
               </a>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>
@@ -662,7 +677,7 @@
       Message sent successfully!
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
