@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Krish Sitikhu | Web Developer</title>
+    <title>Krish Sitikhu | Full Stack Developer</title>
     <meta name="description"
         content="Portfolio of Krish Sitikhu, a passionate web developer based in Bhaktapur, Nepal, specializing in React, Next.js, and full-stack development." />
     <meta name="keywords"
@@ -17,7 +17,7 @@
     <meta property="og:description"
         content="Explore the professional portfolio of Krish Sitikhu, a web developer from Bhaktapur, Nepal, skilled in creating responsive and user-friendly web applications." />
     <meta property="og:image" content="https://www.krishsitikhu.com.np/image/profile.jpg" />
-    <meta property="og:url" content="http`s://www.krishsitikhu.com.np/" />
+    <meta property="og:url" content="https://www.krishsitikhu.com.np/" />
     <meta property="og:type" content="website" />
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -28,10 +28,11 @@
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/redesign.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="image/image.png" type="image/png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- Schema Markup for Person -->
@@ -60,6 +61,7 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#home">Skip to main content</a>
     <!-- Theme Toggle Button -->
     <button id="theme-toggle" aria-label="Toggle dark/light mode">
         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -79,12 +81,13 @@
     <header id="header">
         <div class="container">
             <a href="#home" class="logo"> <span>Krish</span>Sitikhu </a>
-            <nav>
+        <nav aria-label="Primary navigation">
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <button class="menu-toggle" aria-label="Toggle menu">
@@ -102,20 +105,19 @@
 
                 <!-- Profile Picture -->
                 <div class="profile-picture" data-aos="fade-right">
-                    <img src="image/profile.jpg" alt="Krish Sitikhu Profile Picture" />
+                    <img src="image/profile.jpg" alt="Portrait of Krish Sitikhu" width="824" height="915" fetchpriority="high" decoding="async" />
                 </div>
 
                 <!-- Hero Text -->
                 <div class="hero-text">
                     <h1 data-aos="fade-up">
-                        Hi, I'm <span class="highlight">Krish Sitikhu</span>
-                        <span class="position">Web Developer</span>
+                        Full-stack<br />
+                        <span class="highlight">Developer.</span>
+                        <span class="position">I’m <span class="name-highlight">Krish Sitikhu.</span></span>
                     </h1>
 
                     <p data-aos="fade-up" data-aos-delay="100">
-                        I create engaging, responsive, and user-friendly web applications
-                        with modern technologies like React and Next.js. Let's build
-                        something extraordinary together.
+                        I build responsive digital experiences with React, Next.js, Express, and PostgreSQL from clear, useful interfaces to the systems behind them.
                     </p>
 
                     <!-- Buttons -->
@@ -129,19 +131,19 @@
 
                     <!-- Social Links -->
                     <div class="social-links" data-aos="fade-up" data-aos-delay="300">
-                        <a href="https://github.com/krishsitikhu" target="_blank">
+                        <a href="https://github.com/krish28-nep" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
 
-                        <a href="https://facebook.com/krish.ctkhu" target="_blank">
+                        <a href="https://facebook.com/krish.ctkhu" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
 
-                        <a href="https://instagram.com/krishsitikhu" target="_blank">
+                        <a href="https://instagram.com/krishsitikhu" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
 
-                        <a href="mailto:krishsitikhu28@gmail.com">
+                        <a href="mailto:krishsitikhu28@gmail.com" aria-label="Email Krish">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -149,6 +151,8 @@
                 </div>
             </div>
         </div>
+
+        <div class="three-canvas" aria-hidden="true"></div>
 
         <!-- Scroll Down -->
         <a href="#about" class="scroll-down">
@@ -161,7 +165,8 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>About Me</h2>
+                <span class="eyebrow">A little about me</span>
+                <h2>Curious by nature.<br />Developer by practice.</h2>
                 <div class="section-divider"></div>
             </div>
 
@@ -171,22 +176,13 @@
                         I'm <span class="highlight">Krish Sitikhu</span>, a Web Developer
                     </h3>
                     <p>
-                        I'm a passionate web developer pursuing a Bachelor of Science in Computer Science and
-                        Information Technology (BSc CSIT) at Bhaktapur Multiple Campus, with hands-on experience in
-                        building
-                        dynamic web applications. My journey in web development is driven
-                        by a love for creating seamless and innovative digital solutions.
+                        I’m a web developer and BSc CSIT student at Bhaktapur Multiple Campus. I enjoy turning complex ideas into useful, thoughtful digital experiences and I’m always learning something new along the way.
                     </p>
                     <p>
-                        I specialize in front-end and back-end development, with expertise
-                        in React, Next.js, Express, and PostgreSQL. I focus on crafting
-                        responsive, user-friendly websites and applications that deliver
-                        exceptional user experiences.
+                        I work across the stack with React, Next.js, Express, and PostgreSQL. My experience includes building SaaS analytics dashboards and e-commerce platforms, with a focus on clear interfaces and dependable functionality.
                     </p>
                     <p>
-                        When I'm not coding, I enjoy working on games like Rock Paper
-                        Scissors and Tic-Tac-Toe, exploring new tech stacks, and
-                        contributing to collaborative projects to enhance my skills.
+                        I value good collaboration, careful problem-solving, and the small details that make software easier to use. Outside a project, I’m usually exploring a new tool or finding a better way to build.
                     </p>
 
                     <div class="cv-actions">
@@ -313,10 +309,11 @@
     </section>
 
     <!-- Skills Section -->
-    <section>
+    <section id="skills" class="skills">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Skills</h2>
+                <span class="eyebrow">Tools of the trade</span>
+                <h2>Technology I work with</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="skills-grid">
@@ -482,11 +479,11 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>My Projects</h2>
+                <span class="eyebrow">Selected work</span>
+                <h2>Things I’ve helped bring to life</h2>
                 <div class="section-divider"></div>
                 <p data-aos="fade-up" data-aos-delay="100">
-                    Here are some of my recent projects showcasing my skills in web
-                    development, e-commerce, and game development.
+                    A selection of client platforms, commerce experiences, and experiments built across the stack.
                 </p>
             </div>
 
@@ -502,7 +499,7 @@
                 <!-- khwopa.com -->
                 <div class="project-card" data-category="web" data-aos="fade-up">
                     <div class="project-img">
-                        <img src="image/projects/project1.png" alt="the_Khwopa" />
+                        <img loading="lazy" decoding="async" src="image/projects/project1.png" alt="the_Khwopa" />
                     </div>
                     <div class="project-info">
                         <h3>The Khwopa</h3>
@@ -535,7 +532,7 @@
                 <!-- Consultancy -->
                 <div class="project-card" data-category="web" data-aos="fade-up">
                     <div class="project-img">
-                        <img src="image/projects/project2.png" alt="consultancy_portal" />
+                        <img loading="lazy" decoding="async" src="image/projects/project2.png" alt="consultancy_portal" />
                     </div>
                     <div class="project-info">
                         <h3>consultancy Portal</h3>
@@ -567,7 +564,7 @@
                 <!-- Business Website -->
                 <div class="project-card" data-category="web" data-aos="fade-up">
                     <div class="project-img">
-                        <img src="image/projects/project3.png" alt="Business_website" />
+                        <img loading="lazy" decoding="async" src="image/projects/project3.png" alt="Business_website" />
                     </div>
                     <div class="project-info">
                         <h3>Business Website Portal</h3>
@@ -600,7 +597,7 @@
                 <!-- Infotraid Portfolio Website -->
                 <div class="project-card" data-category="web" data-aos="fade-up">
                     <div class="project-img">
-                        <img src="image/projects/project4.png" alt="portfolio_website" />
+                        <img loading="lazy" decoding="async" src="image/projects/project4.png" alt="portfolio_website" />
                     </div>
                     <div class="project-info">
                         <h3>Infotraid Portfolio Website</h3>
@@ -633,7 +630,7 @@
 
                 <div class="project-card" data-category="web" data-aos="fade-up">
                     <div class="project-img">
-                        <img src="image/projects/project6.png" alt="Vortexis" />
+                        <img loading="lazy" decoding="async" src="image/projects/project6.png" alt="Vortexis" />
                     </div>
                     <div class="project-info">
                         <h3>Vortexis</h3>
@@ -679,7 +676,7 @@
                 <!-- Project 1 -->
                 <div class="project-card" data-category="web" data-aos="fade-up">
                     <div class="project-img">
-                        <img src="https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="JUJU Dhau" />
                     </div>
                     <div class="project-info">
@@ -714,7 +711,7 @@
 
                 <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-img">
-                        <img src="https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="Weather App" />
                     </div>
                     <div class="project-info">
@@ -748,7 +745,7 @@
                 <!-- Project 3 -->
                 <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-img">
-                        <img src="https://images.pexels.com/photos/6956183/pexels-photo-6956183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/6956183/pexels-photo-6956183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="To Do List" />
                     </div>
                     <div class="project-info">
@@ -781,7 +778,7 @@
 
                 <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-img">
-                        <img src="image/projects/project7.jpg" alt="general_examination" />
+                        <img loading="lazy" decoding="async" src="image/projects/project7.jpg" alt="general_examination" />
                     </div>
                     <div class="project-info">
                         <h3>General examination</h3>
@@ -827,7 +824,7 @@
                 <!-- Project 6 -->
                 <div class="project-card" data-category="games" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-img">
-                        <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img loading="lazy" decoding="async" src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="Tic-Tac-Toe" />
                     </div>
                     <div class="project-info">
@@ -871,11 +868,47 @@
         </div>
     </section>
 
+    <!-- Education & Experience -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Path so far</span>
+                <h2>Education &amp; Experience</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="timeline-grid">
+                <div class="timeline-column">
+                    <p class="timeline-label">Experience</p>
+                    <article class="timeline-item">
+                        <p class="timeline-date">10/2024 – Present</p>
+                        <h3>Software Engineer</h3>
+                        <p class="timeline-place">Infotraid Technology · Bhaktapur, Nepal</p>
+                        <ul>
+                            <li>Led development of e-commerce, consultancy, and business platforms.</li>
+                            <li>Built responsive user interfaces integrated with backend APIs.</li>
+                            <li>Delivered scalable, production-ready full-stack solutions.</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="timeline-column">
+                    <p class="timeline-label">Education</p>
+                    <article class="timeline-item">
+                        <p class="timeline-date">2023 – Present</p>
+                        <h3>BSc CSIT</h3>
+                        <p class="timeline-place">Bachelor of Science in Computer Science and Information Technology</p>
+                        <p>Bhaktapur Multiple Campus (TU)</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Get In Touch</h2>
+                <span class="eyebrow">Have something in mind?</span>
+                <h2>Let’s make it useful.</h2>
                 <div class="section-divider"></div>
                 <p data-aos="fade-up" data-aos-delay="100">
                     Have a project in mind or want to discuss a potential collaboration?
@@ -1022,6 +1055,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#skills">Skills</a></li>
                         <li><a href="#projects">Projects</a></li>
+                        <li><a href="#experience">Experience</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1071,7 +1105,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2025 Krish Sitikhu. All Rights Reserved.</p>
+                <p>© 2026 Krish Sitikhu. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1107,7 +1141,10 @@
     </div>
 
 
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="js/main.js" defer></script>
     <script src="js/email.js"></script>
 </body>
 
